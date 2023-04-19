@@ -26,6 +26,9 @@ export class Products {
   @Prop({ required: true })
   manuf_name: string;
 
+  @Prop({required:false})
+  organization:string;
+
   @Prop({ required: true })
   mfg_date: string;
 
