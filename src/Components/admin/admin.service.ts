@@ -21,11 +21,18 @@ export class AdminService {
 
   async addUser(userdto: userDTO): Promise<User> {
     const findinDb = await this.userModel.findOne({
-      username: userdto.username,
+      username: userdto.username
+    });
+    const findinOrg = await this.userModel.findOne({
+      organization: userdto.organization
     });
     if (findinDb) {
       throw new MyException('Username not available!');
-    } else {
+    }
+ 
+    else if(findinOrg){
+      throw new MyException('organization not available!');
+    }else {
       const saltOrRounds = 10;
       const password = userdto.password;
       const hash = await bcrypt.hash(password, saltOrRounds);
@@ -110,12 +117,12 @@ export class AdminService {
   }
   async findAllOrganizations() {
     const users = await this.userModel.find({ isDeleted: false }).exec();
-    const organizations = users.map(u => {
-      return{
+    const organizations = users
+      .filter(u => u.organization) 
+      .map(u => ({
         user: u._id,
-        org: u.organization
-      }
-    })
+        org: u.organization 
+      }));
     return organizations;
   }
 }
