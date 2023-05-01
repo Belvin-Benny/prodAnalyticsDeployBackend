@@ -4,8 +4,8 @@ export class CreateCaptureDto {
     user_gen_pwd: string;
     secret_code: string;
     captured_image: string;
-    loc_lat: string;
-    loc_long: string;
+    loc_lat: number;
+    loc_long: number;
     user_ip: string;
     access_method: string;
     qr_code_url: string;
@@ -16,8 +16,8 @@ export class CreateCaptureDto {
     product_details: {
         product_code: string;
         product_name: string
-      
     }
-
-
 }
+
+
+

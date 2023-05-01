@@ -7,5 +7,12 @@ export class userDTO {
   password: string;
   isDeleted: boolean;
   createdBy: string;
-  isAdmin:boolean;
+  isAdmin: boolean;
+}
+
+
+export enum Users {
+  superAdmin = 'superAdmin',
+  admin = 'admin',
+  normalUser = 'normalUser',
 }

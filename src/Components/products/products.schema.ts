@@ -23,11 +23,11 @@ export class Products {
   @Prop({ required: true, type: Types.ObjectId, ref: 'User' })
   user_id: Types.ObjectId;
 
+  @Prop({ required: false })
+  organization: string;
+
   @Prop({ required: true })
   manuf_name: string;
-
-  @Prop({required:false})
-  organization:string;
 
   @Prop({ required: true })
   mfg_date: string;

@@ -8,7 +8,7 @@ export interface ProductInterface {
   expiry_date: string;
   mfg_date: string;
   manuf_name: string;
-  organization:string;
+  organization: string;
   mfg_license_no: string;
   best_before_days: string;
   secret_code: string;

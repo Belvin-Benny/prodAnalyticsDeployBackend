@@ -15,7 +15,7 @@ import { JwtAuthGuard } from 'src/guard/jwt-auth.guard';
 
 @Controller('admin')
 export class AdminController {
-  constructor(private readonly adminService: AdminService) {}
+  constructor(private readonly adminService: AdminService) { }
 
   @UseGuards(JwtAuthGuard)
   @Get('users')
